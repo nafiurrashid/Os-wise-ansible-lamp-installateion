@@ -1,0 +1,11 @@
+---
+- name: Install LAMP
+  hosts: multi
+  become: yes
+
+- import_playbook: /home/ansible/playbook/ubuntuclient-2.yaml
+  when: ansible_os_family=='Debian' or ansible_os_family=='Ubuntu'
+
+- import_playbook: /home/ansible/playbook/ubuntuclient-2.yaml
+  when: ansible_os_family=='RedHat'
+
